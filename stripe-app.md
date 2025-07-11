@@ -188,6 +188,56 @@ CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
 - **Cache Docker** : Ordonnancement des couches pour optimiser le cache
 - **Sécurité** : Utilisation d'Alpine pour réduire la surface d'attaque
 
+## Captures d'Écran et Démonstrations
+
+### 1. Transactions Stripe Dashboard
+*Capture d'écran du tableau de bord Stripe montrant les transactions de test de l'application*
+
+<!-- Remplacez cette URL par votre capture d'écran -->
+![Transactions Stripe](URL_DE_VOTRE_IMAGE_STRIPE)
+
+Cette capture montre les transactions de test effectuées via l'application Django. Le dashboard Stripe permet de visualiser :
+- Les paiements réussis avec les montants
+- Les méthodes de paiement utilisées (cartes de test)
+- Les détails des transactions et leur statut
+- L'intégration correcte entre l'application et l'API Stripe
+
+### 2. Optimisation de la Taille d'Image Docker
+*Comparaison des tailles d'images avant et après optimisation*
+
+<!-- Remplacez cette URL par votre capture d'écran -->
+![Optimisation Docker](URL_DE_VOTRE_IMAGE_DOCKER_SIZES)
+
+Cette comparaison illustre l'impact des optimisations DevSecOps :
+- **Avant optimisation** : Image Python standard (~1.2GB)
+- **Après optimisation** : Image Alpine Linux (~200MB)
+- **Réduction de 80%** grâce à l'utilisation d'Alpine et à la réduction des couches
+- **Techniques appliquées** : Multi-stage builds, cache Docker, nettoyage des packages
+
+### 3. Images Docker Hub
+*Capture d'écran du repository Docker Hub avec les images déployées*
+
+<!-- Remplacez cette URL par votre capture d'écran -->
+![Docker Hub Repository](URL_DE_VOTRE_IMAGE_DOCKERHUB)
+
+Le repository Docker Hub montre :
+- L'image `gloatingorc/stripe-app:latest` optimisée
+- La taille compacte de l'image (environ 200MB)
+- Les tags disponibles et la date de dernière mise à jour
+- L'intégration avec le pipeline CI/CD pour les déploiements automatisés
+
+### 4. Page de Paiement de l'Application
+*Interface utilisateur de la page de paiement avec intégration Stripe*
+
+<!-- Remplacez cette URL par votre capture d'écran -->
+![Page de Paiement](URL_DE_VOTRE_IMAGE_PAYMENT_PAGE)
+
+L'interface de paiement démontre :
+- L'intégration native de Stripe Elements dans l'application Django
+- Le formulaire de paiement sécurisé avec validation en temps réel
+- L'interface utilisateur responsive et professionnelle
+- Les éléments de sécurité (HTTPS, tokens, validation côté client)
+
 ## Accès à l'Application
 
 ### Comptes de Test
