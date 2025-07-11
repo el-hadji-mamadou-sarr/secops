@@ -1,4 +1,4 @@
-FROM python:3.11.5
+FROM python:3.11-alpine3.18
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -12,17 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Install node 18 and npm
-RUN set -uex; \
-    apt-get update; \
-    apt-get install -y ca-certificates curl gnupg; \
-    mkdir -p /etc/apt/keyrings; \
-    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
-     | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg; \
-    NODE_MAJOR=18; \
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" \
-     > /etc/apt/sources.list.d/nodesource.list; \
-    apt-get update; \
-    apt-get install nodejs -y;
+RUN apk add --no-cache nodejs npm
 
 # Install modules and webpack
 RUN npm i
