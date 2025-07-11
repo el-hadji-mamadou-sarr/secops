@@ -5,6 +5,7 @@ services:
     restart: always
     ports:
       - "5085:5005"
+      - "5000:5000" # Expose FastAPI server port for penetration testing
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -28,6 +29,15 @@ services:
     volumes:
       - stripe_media:/media
       - stripe_static:/staticfiles
+  fastapi-server:
+    container_name: fastapi_server
+    restart: always
+    build: ./fastapi-server
+    ports:
+      - "5000:5000"
+    networks:
+      - web_network
+      - db_network
 
 networks:
   web_network:
