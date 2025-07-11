@@ -36,6 +36,19 @@ services:
     networks:
       - web_network
       - db_network
+  velocity-front:
+    container_name: velocity_front
+    restart: always
+    build: ./velocity-front
+    networks:
+      - web_network
+  velocity-back:
+    container_name: velocity_back
+    restart: always
+    build: ./velocity-back
+    networks:
+      - web_network
+      - db_network
 
 networks:
   web_network:
