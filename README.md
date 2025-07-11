@@ -88,19 +88,28 @@ docker compose push
 
 ## Exécution de l'Application
 
-### Démarrer tous les services :
+### Avec le fichier docker-compose.yml (construction locale) :
 ```bash
+# Démarrer tous les services
 docker compose up -d
-```
 
-### Arrêter tous les services :
-```bash
+# Arrêter tous les services
 docker compose down
+
+# Voir les logs
+docker compose logs -f
 ```
 
-### Voir les logs :
+### Avec le fichier docker-compose-hub.yml (images Docker Hub) :
 ```bash
-docker compose logs -f
+# Démarrer tous les services avec les images Docker Hub
+docker compose -f docker-compose-hub.yml up -d
+
+# Arrêter tous les services
+docker compose -f docker-compose-hub.yml down
+
+# Voir les logs
+docker compose -f docker-compose-hub.yml logs -f
 ```
 
 ## Points d'Accès des Services
