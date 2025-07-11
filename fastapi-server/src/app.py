@@ -13,9 +13,9 @@ origins = [
 ]
 
 if (settings.debugging):
-    app = FastAPI(debug=True, reload=True, port=5000)
+    app = FastAPI(debug=True, reload=True, port=5006)
 else:
-    app = FastAPI(port=5000)
+    app = FastAPI(port=5006)
 
 
 @app.get("/healthcheck", include_in_schema=False)
