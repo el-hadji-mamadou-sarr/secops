@@ -6,8 +6,8 @@ services:
     ports:
       - "5085:5005"
       - "5006:5006" # Expose FastAPI server port for penetration testing
-      - "8080:8080" # Velocity front
-      - "4242:4242" # Velocity back
+      - "5007:8080" # Velocity front
+      - "5008:4242" # Velocity back
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -16,6 +16,9 @@ services:
       - velocity_static:/velocity
     depends_on:
       - stripe-app
+      - velocity-front
+      - velocity-back
+      - fastapi-server
     networks:
       - web_network
   stripe-app:
@@ -51,6 +54,9 @@ services:
     container_name: velocity_back
     restart: always
     build: ./velocity-back
+    environment:
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - PORT=4242
     networks:
       - web_network
       - db_network
