@@ -1,0 +1,167 @@
+<!-- discounted_product_list.html -->
+
+{% extends "layouts/base-products.html" %}
+{% load static %}
+
+{% block title %}
+    {% if request.path == '/' %}
+        {{ site_name }} - eCommerce Solution | {{ copyright }} 
+    {% else %}
+        {{ tag|title }} - {{ products|length }} products in this category | {{ copyright }} 
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+<style>
+  /* Add custom styles here if needed */
+  @keyframes zoomIn {
+      0% {
+          transform: scale(0);
+      }
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  .zoomIn {
+      animation: zoomIn 0.5s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+      0% {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  .slideIn {
+      animation: slideIn 0.5s ease-out forwards;
+  }
+</style>
+
+
+{% if request.path == '/' %}
+<section class="bg-white dark:bg-gray-900 border-b border-gray-200">
+    <div class="md:pt-[147px] pt-[190px] mx-auto">
+        <div class="">
+            {% if hero_video %}
+                <video class="w-full" autoplay muted loop>
+                    <source src="{{ hero_video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% else %}
+                <video class="w-full" autoplay muted loop>
+                    <source src="{% static "dist/home-video.mp4" %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="bg-white pt-0 {% if not request.path == '/' %} md:pt-44 {% else %} md:pt-10 {% endif %} md:pt-10 mb-10 md:mb-16 pb-10 md:pb-16 border-b border-gray-200">
+    <div class="mt-10">
+        <div class="flex justify-between max-w-screen-2xl mx-auto px-5 mb-10">
+            <span class="block text-lg">Latest Drops</span>
+            {% if not request.path == '/' %}
+            <a class="flex text-blue-600 text-sm" href="/">
+                <span>View all</span>
+                <svg class="w-5 h-5 text-blue-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                </svg>              
+            </a>
+            {% endif %}
+        </div>
+        <div class="grid mx-auto max-w-screen-2xl gap-14 lg:grid-cols-3 px-5" id='scrollTarget'>
+            {% for product in products %}
+                {% if not product.discount %}
+                <a class="group" href="{% url 'product_details' product.slug %}">
+                    <div class="max-w-full mx-auto bg-white rounded-lg overflow-hidden border border-gray-200 md:h-[570px]">
+                        {% if product.img_main %}
+                            <img class="rounded-t-lg h-full object-cover" src="{{ product.img_main.url }}" alt="product image" />
+                        {% endif %}
+                    </div>
+                    <div class="flex justify-between mt-5">
+                        <span class="block text-sm text-slate-700">{{ product.name }}</span>
+                        <span class="block text-sm text-slate-500">€{{ product.price }}</span>
+                    </div>
+                </a>
+                {% else %}
+                <a class="group" href="{% url 'product_details' product.slug %}">
+                    <div class="max-w-full mx-auto bg-white rounded-lg overflow-hidden border border-gray-200 md:h-[570px] relative">
+                        {% if product.img_main %}
+                            <img class="rounded-t-lg h-full object-cover" src="{{ product.img_main.url }}" alt="product image" />
+                        {% endif %}
+                        <div class="absolute top-2 right-2">
+                          {% if product.discount %}
+                          <div class="bg-red-400 text-white rounded-md py-1 px-2">
+                              
+                            <span class="text-xl">-{{ product.discount|floatformat:"0" }}%</span>
+                            
+                          </div>
+                          {% endif %}
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-5">
+                        <span class="block text-sm text-slate-700">{{ product.name }}</span>
+                        <div class="flex gap-3">
+                          <span class="block text-sm text-slate-500">€{{ product.price }}</span>
+                          <span class="block text-sm text-slate-500 line-through">€{{ product.discounted_price }}</span>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>  
+
+
+<script>
+  document.getElementById('scrollButton').addEventListener('click', function () {
+      document.getElementById('scrollTarget').scrollIntoView({
+          behavior: 'smooth'
+      });
+  });
+</script>
+
+<script>
+  function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+  }
+
+  function handleAnimation() {
+      const zoomElement = document.getElementById('zoomElement');
+      const slideElement = document.getElementById('slideElement');
+      if (isInViewport(zoomElement)) {
+          zoomElement.classList.add('zoomIn');
+      } else {
+          zoomElement.classList.remove('zoomIn');
+      }
+      if (isInViewport(slideElement)) {
+          slideElement.classList.add('slideIn');
+      } else {
+          slideElement.classList.remove('slideIn');
+      }
+  }
+
+  // Trigger animations when scrolling
+  window.addEventListener('scroll', handleAnimation);
+
+  // Initial check for animations on page load
+  handleAnimation();
+</script>
+
+
+{% endblock %}

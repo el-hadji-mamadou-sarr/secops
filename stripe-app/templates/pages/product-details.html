@@ -1,0 +1,230 @@
+{% extends "layouts/base-products.html" %}
+{% load static %}
+
+{% block title %}
+    {{ product.name }} | {{ copyright }} 
+{% endblock title %}
+
+{% block extrastyle %}
+
+<script src="https://kit.fontawesome.com/ea9bd22eef.js" crossorigin="anonymous"></script>
+
+{% endblock extrastyle %}
+
+{% block content %}
+
+    <!-- component -->
+    <section class="text-gray-700 body-font overflow-hidden bg-white">
+        <div class="px-5 mx-auto pt-44 md:pb-44 pb-10">
+            <div class="max-w-screen-2xl p-0 md:p-5 mx-auto flex flex-wrap">
+                <div class="w-full md:w-1/4 pr-0 md:pr-10 mt-10 md:mt-28 mb-10 md:mb-0">
+                    <h2 class="text-sm title-font text-gray-500 tracking-widest mb-5">
+                        {% for tag in product.tags.all %} <span class="py-2 text-slate-500">{{ tag.name|title }}</span> {% endfor %}
+                    </h2>
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-3">{{ product.name }}</h1>
+                    <p class="leading-relaxed text-sm">{{ product.description }}</p>
+
+                    
+                    <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+                        {% if product.product_props.all %}
+                        <h2 id="accordion-flush-heading-1">
+                            <button type="button" class="flex items-center justify-between w-full py-5 font-normal text-sm text-slate-500 rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                                <span>Product Information</span>
+                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                                <div class="grid grid-cols-2 gap-3 mb-5">
+                                    {% for prop in product.product_props.all %}
+                                    <div class="mb-4">
+                                        <h6 class="font-medium text-sm mb-2">{{ prop.prop }}</h6>
+                                        <span class="block text-sm">{{prop.value}}</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <h2 id="accordion-flush-heading-2">
+                            <button type="button" class="flex items-center justify-between w-full py-5 font-normal text-sm text-slate-500 rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+                                <span>Shipping & Returns</span>
+                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                                <div class="flex gap-3 mb-5">
+                                    <div>
+                                        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                                        </svg> 
+                                    </div>  
+                                    <div class="">
+                                        <h6 class="font-medium text-xs">Fast delivery</h6>
+                                        <span class="font-normal text-xs">Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home.</span>
+                                    </div>                                   
+                                </div>
+                                <div class="flex gap-3 mb-5">
+                                    <div>
+                                        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 10 3-3m0 0-3-3m3 3H5v3m3 4-3 3m0 0 3 3m-3-3h14v-3"/>
+                                        </svg> 
+                                    </div>  
+                                    <div class="">
+                                        <h6 class="font-medium text-xs">Simple exchanges</h6>
+                                        <span class="font-normal text-xs">Is the fit not quite right? No worries - we'll exchange your product for a new one.</span>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 px-0 md:px-10">
+                    <div class="slide-wrapper">
+                        <div class="swiper bannerSliderLarge" data-aos="zoom-in" data-aos-delay="100">
+                           <div class="swiper-wrapper">
+                               {% if product.img_main %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_main.url }}">
+                                </div>
+                                {% endif %}
+                                {% if product.img_1 %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_1.url }}">
+                                </div>
+                                {% endif %}
+                                {% if product.img_2 %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_2.url }}">
+                                </div>
+                                {% endif %}
+                                {% if product.img_3 %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_3.url }}">
+                                </div>
+                                {% endif %}
+                                {% if product.img_4 %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_4.url }}">
+                                </div>
+                                {% endif %}
+                                {% if product.img_5 %}
+                                <div class="swiper-slide">
+                                    <img alt="ecommerce" class="w-full md:h-[700px] mb-5 object-cover object-center rounded border border-gray-200" src="{{ product.img_5.url }}">
+                                </div>
+                                {% endif %}
+                           </div>
+                           <div class="hidden md:block">
+                                <div class="swiper-button-prev"></div>
+                                <div class="separator"></div>
+                                <div class="swiper-button-next"></div>
+                           </div>
+                         </div>
+                         <div thumbsSlider="" class="swiper bannerThumbSlider">
+                            <div class="swiper-wrapper justify-center">
+                                {% if product.img_main %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="100">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_main.url }}" />
+                                </div>
+                                {% endif %}
+                                {% if product.img_1 %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="200">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_1.url }}" />
+                                </div>
+                                {% endif %}
+                                {% if product.img_2 %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="300">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_2.url }}" />
+                                </div>  
+                                {% endif %}
+                                {% if product.img_3 %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="400">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_3.url }}" />
+                                </div>   
+                                {% endif %}
+                                {% if product.img_4 %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="500">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_4.url }}" />
+                                </div>             
+                                {% endif %}
+                                {% if product.img_5 %}
+                                <div class="swiper-slide" data-aos="zoom-in-left" data-aos-delay="600">
+                                    <img class="border rounded-xl h-16 w-16 object-cover" src="{{ product.img_5.url }}" />
+                                </div> 
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w-full md:w-1/4 pl-0 md:pl-5 mt-10 md:mt-28">
+                    {% comment %} {% if product.colors %}
+                    <h5 class="mb-5">Select color</h5>
+                    
+                   
+                    
+                    <form method="post" action="{% url 'add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <ul class="grid gap-3 md:grid-cols-2 mb-5">
+                            {% for color in product.colors.all %}
+                            <li>
+                                <input type="radio" id='color-{{color.id}}' name='product_color' value="{{color.id}}" class="hidden peer">
+                                <label for='color-{{color.id}}' class="inline-flex items-center justify-center py-3 w-full text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                    <div class="block">
+                                        <div class="w-full text-xs font-normal">{{color.name}}</div>
+                                    </div>
+                                </label>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                      
+                  
+                    
+                    
+                    {% endif %} {% endcomment %}
+                    <hr class=" mb-3">
+                    <h3 class="text-2xl font-bold text-black mb-3">€{{ product.price }}</h3>
+
+                    <a href="{% url 'add_to_cart' product.id %}"  class="w-full text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-3 text-center inline-flex items-center justify-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                        Add to cart
+                    </a>
+                {% comment %} </form> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-10 md:pb-40 border-b border-gray-200">
+        <div class="max-w-screen-2xl p-5 mx-auto">
+            <div class="w-full md:w-2/5 mx-auto mb-0 md:mb-28">
+                <span class="text-center block mb-5 text-slate-600">Related products</span>
+                <h3 class="text-center text-3xl font-medium">You might also want to check out these products.</h3>
+            </div>
+
+            <div class="grid mx-auto max-w-screen-2xl gap-10 lg:grid-cols-4 ">
+                {% for product in related_products %}
+                <a class="group" href="{% url 'product_details' product.slug %}">
+                    <div class="max-w-full mx-auto bg-white rounded-lg overflow-hidden border border-gray-200" style="height: 570px;">
+                        {% if product.img_main %}
+                            <img class="rounded-t-lg h-full object-cover" src="{{ product.img_main.url }}" alt="product image" />
+                        {% endif %}
+                    </div>
+                    <div class="flex justify-between mt-5">
+                        <span class="block text-sm text-slate-700">{{ product.name }}</span>
+                        <span class="block text-sm text-slate-500">€{{ product.price }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
