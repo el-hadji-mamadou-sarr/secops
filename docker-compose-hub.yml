@@ -1,0 +1,73 @@
+services:
+  nginx:
+    container_name: nginx_proxy
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "5085:5005"
+      - "5007:8080" # Velocity front
+      - "5008:4242" # Velocity back
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - stripe_static:/staticfiles
+      - stripe_media:/media
+      - velocity_static:/velocity
+    depends_on:
+      - stripe-app
+      - velocity-front
+      - velocity-back
+    networks:
+      - web_network
+  stripe-app:
+    container_name: stripe_app
+    restart: always
+    image: gloatingorc/stripe-app:latest
+    environment:
+      - DEBUG=True
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
+    networks:
+      - web_network
+      - db_network
+    volumes:
+      - stripe_media:/media
+      - stripe_static:/staticfiles
+  fastapi-server:
+    container_name: fastapi_server
+    restart: always
+    image: gloatingorc/fastapi-server:latest
+    ports:
+      - "5006:5000" # Expose FastAPI server port for penetration testing
+    networks:
+      - web_network
+      - db_network
+  velocity-front:
+    container_name: velocity_front
+    restart: always
+    image: gloatingorc/velocity-front:latest
+    networks:
+      - web_network
+    volumes:
+      - velocity_static:/usr/share/nginx/html
+  velocity-back:
+    container_name: velocity_back
+    restart: always
+    image: gloatingorc/velocity-back:latest
+    environment:
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - PORT=4242
+    networks:
+      - web_network
+      - db_network
+
+networks:
+  web_network:
+    driver: bridge
+  db_network:
+    driver: bridge
+
+volumes:
+  stripe_media:
+  stripe_static:
+  velocity_static:
