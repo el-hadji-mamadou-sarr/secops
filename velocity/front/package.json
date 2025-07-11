@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TSB04/Velocity-Wheels.git"
+    "url": "git+https://github.com/TSB04-Wheels.git"
   },
   "keywords": [
     "velocity wheels",
@@ -34,9 +34,9 @@
   "author": "tsb04",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TSB04/Velocity-Wheels/issues"
+    "url": "https://github.com/TSB04-Wheels/issues"
   },
-  "homepage": "https://github.com/TSB04/Velocity-Wheels#readme",
+  "homepage": "https://github.com/TSB04-Wheels#readme",
   "dependencies": {
     "dotenv": "^17.2.0"
   }

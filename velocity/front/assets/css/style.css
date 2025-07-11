@@ -1853,16 +1853,16 @@ video {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
-.bg-\[url\(\'\/velocity\/assets\/images\/insta-bg\.png\'\)\]{
-  background-image: url('/velocity/assets/images/insta-bg.png');
+.bg-\[url\(\'\\/assets\/images\/insta-bg\.png\'\)\]{
+  background-image: url('/assets/images/insta-bg.png');
 }
 
-.bg-\[url\(\/velocity\/assets\/images\/collection-bg\.jpg\)\]{
-  background-image: url(/velocity/assets/images/collection-bg.jpg);
+.bg-\[url\(\\/assets\/images\/collection-bg\.jpg\)\]{
+  background-image: url(/assets/images/collection-bg.jpg);
 }
 
-.bg-\[url\(\/velocity\/assets\/images\/feedback-bg\.png\)\]{
-  background-image: url(/velocity/assets/images/feedback-bg.png);
+.bg-\[url\(\\/assets\/images\/feedback-bg\.png\)\]{
+  background-image: url(/assets/images/feedback-bg.png);
 }
 
 .from-\[\#000000\]{
