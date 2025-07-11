@@ -5,7 +5,6 @@ services:
     restart: always
     ports:
       - "5085:5005"
-      - "5006:5006" # Expose FastAPI server port for penetration testing
       - "5007:8080" # Velocity front
       - "5008:4242" # Velocity back
     volumes:
@@ -18,7 +17,6 @@ services:
       - stripe-app
       - velocity-front
       - velocity-back
-      - fastapi-server
     networks:
       - web_network
   stripe-app:
@@ -39,6 +37,8 @@ services:
     container_name: fastapi_server
     restart: always
     build: ./fastapi-server
+    ports:
+      - "5006:5000" # Expose FastAPI server port for penetration testing
     networks:
       - web_network
       - db_network
