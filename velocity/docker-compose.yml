@@ -1,17 +1,22 @@
+version: "3.9"
+
 services:
   backend:
     build:
       context: ./back
       dockerfile: Dockerfile
-    env_file: .env           # You should have .env in the project root or backend/
+    env_file:
+      - ./back/.env
     ports:
       - "4242:4242"
     restart: unless-stopped
 
   frontend:
     build:
-      context: ./
+      context: ./front
       dockerfile: Dockerfile
+    env_file:
+      - ./front/.env         # Only needed if your static site needs ENV vars (e.g., for a custom runtime config.js)
     ports:
       - "8080:80"
     depends_on:
