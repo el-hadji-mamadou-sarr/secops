@@ -279,7 +279,7 @@ L'interface de paiement démontre :
 <img width="1127" height="364" alt="Screenshot from 2025-07-11 17-32-28" src="https://github.com/user-attachments/assets/bb4ed966-910b-4c37-a879-1e52bb5382c7" />
 
 
-## Choix des Technologies - Contexte DevOps
+## Choix des Technologies
 
 ### Conteneurisation - Docker
 - **Infrastructure as Code** : Définition reproductible des environnements
