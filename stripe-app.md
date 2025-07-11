@@ -249,31 +249,47 @@ L'interface de paiement démontre :
 ## Répartition des Tâches de l'Équipe
 
 ### Équipe DevSecOps
-**Chef de Projet & DevSecOps Engineer**: El Hadji Mamadou SARR
 
-#### Répartition des Responsabilités
+L'équipe DevSecOps est composée de **3 ingénieurs** spécialisés dans différents domaines :
 
-**Phase 1 - Conception & Architecture**
-- Analyse des besoins et définition de l'architecture
-- Choix des technologies et frameworks
-- Conception du schéma d'architecture technique
-- Définition des bonnes pratiques DevSecOps
+- **El Hadji Mamadou SARR** - Chef de Projet & Architecte DevSecOps
+- **Salamata Mbaye** - DevSecOps Engineer (FastAPI)
+- **Thierno Sadou** - DevSecOps Engineer (Velocity)
 
-**Phase 2 - Développement & Conteneurisation**
-- Configuration des Dockerfiles optimisés
-- Mise en place du reverse proxy Nginx
+#### Répartition Individuelle des Responsabilités
 
-**Phase 3 - Infrastructure & Déploiement**
-- Configuration Docker Compose centralisé
-- Mise en place des réseaux et volumes
-- Tests d'intégration et de déploiement
-- Optimisation des images Docker
+### El Hadji Mamadou SARR - Architecture & Coordination
+**Responsabilités principales :**
+- **Architecture système** : Conception de l'architecture globale du projet
+- **Docker & Conteneurisation** : Configuration des Dockerfiles optimisés
+- **Stripe App Django** : Développement et déploiement de l'application e-commerce
+- **Reverse Proxy Nginx** : Configuration du proxy inverse centralisé
+- **Docker Compose** : Orchestration des services avec un fichier centralisé
+- **Documentation** : Rédaction complète de la documentation technique
 
-**Phase 4 - Sécurité & Monitoring**
-- Audit de sécurité des conteneurs
-- Configuration des variables d'environnement
-- Tests de sécurité et validation
-- Documentation complète
+### Salamata Mbaye - FastAPI Service
+**Responsabilités principales :**
+- **Développement FastAPI** : Conception et implémentation du service FastAPI
+- **API RESTful** : Développement des endpoints et de la logique métier
+- **Tests unitaires** : Mise en place des tests pour l'API
+- **Conteneurisation FastAPI** : Configuration Docker spécifique au service
+- **Documentation API** : Swagger/OpenAPI documentation
+
+### Thierno Sadou - Velocity Service
+**Responsabilités principales :**
+- **Développement Velocity** : Implémentation du service Velocity (template engine)
+- **Templates & Vues** : Création des templates et interfaces utilisateur
+- **Intégration frontend** : Liaison avec les services backend
+- **Conteneurisation Velocity** : Configuration Docker du service
+- **Tests d'intégration** : Validation des interactions entre services
+
+#### Collaboration et Coordination
+
+**Méthodologie de travail :**
+- **Architecture partagée** : Définition commune des standards et conventions
+- **Intégration continue** : Synchronisation des développements via Git
+- **Tests d'intégration** : Validation croisée des services
+- **Déploiement unifié** : Un seul docker-compose.yml pour tous les services
 
 ## Schéma de l'Architecture du Projet
 <img width="1127" height="364" alt="Screenshot from 2025-07-11 17-32-28" src="https://github.com/user-attachments/assets/bb4ed966-910b-4c37-a879-1e52bb5382c7" />
