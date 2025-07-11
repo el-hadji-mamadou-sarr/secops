@@ -210,8 +210,6 @@ CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
 - Définition des bonnes pratiques DevSecOps
 
 **Phase 2 - Développement & Conteneurisation**
-- Développement de l'application Django e-commerce
-- Intégration de Stripe pour les paiements
 - Configuration des Dockerfiles optimisés
 - Mise en place du reverse proxy Nginx
 
@@ -228,7 +226,8 @@ CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
 - Documentation complète
 
 ## Schéma de l'Architecture du Projet
-![Schéma de l'Architecture du Projet](https://raw.githubusercontent.com/el-hadji-mamadou-sarr/secops/main/architecture-diagram.png)
+<img width="1127" height="364" alt="Screenshot from 2025-07-11 17-32-28" src="https://github.com/user-attachments/assets/bb4ed966-910b-4c37-a879-1e52bb5382c7" />
+
 
 ## Choix des Technologies - Contexte DevOps
 
