@@ -5,10 +5,13 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "5005:5005"
       - "443:443"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - stripe_static:/staticfiles
+      - stripe_media:/media
     depends_on:
       - stripe-app
     networks:
@@ -26,8 +29,8 @@ services:
       - web_network
       - db_network
     volumes:
-      - stripe_media:/app/media
-      - stripe_static:/app/staticfiles
+      - stripe_media:/media
+      - stripe_static:/staticfiles
 
 networks:
   web_network:
