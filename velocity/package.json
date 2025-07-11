@@ -1,0 +1,43 @@
+{
+  "name": "velocity-wheels",
+  "version": "1.0.0",
+  "description": "Velocity Wheels is a modern, user-centric e-commerce platform dedicated to bike enthusiasts of all kinds—from city commuters and casual weekend riders to serious road cyclists and mountain bikers. The site offers an end-to-end shopping experience: product discovery, customization, secure checkout, and after-sales support",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i assets/css/tailwind.css -o assets/css/style.css --watch",
+    "build": "npx tailwindcss -i assets/css/tailwind.css -o assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.8",
+    "@tailwindcss/typography": "^0.5.15",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TSB04/Velocity-Wheels.git"
+  },
+  "keywords": [
+    "velocity wheels",
+    "bike store",
+    "online bike shop",
+    "cycling",
+    "bicycle",
+    "road bikes",
+    "mountain bikes",
+    "hybrid bikes",
+    "custom bikes",
+    "bike accessories",
+    "bike parts"
+  ],
+  "author": "tsb04",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TSB04/Velocity-Wheels/issues"
+  },
+  "homepage": "https://github.com/TSB04/Velocity-Wheels#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0"
+  }
+}

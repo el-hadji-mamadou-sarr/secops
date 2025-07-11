@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order success | Velocity Wheels</title>
+    <meta
+      name="description"
+      content="Your journey to the genuine begins here."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Order success | Velocity Wheels" />
+    <meta
+      property="og:description"
+      content="Your journey to the genuine begins here."
+    />
+    <meta
+      property="og:url"
+      content="https://bike-store-html.vercel.app/order-success.html"
+    />
+    <meta
+      property="og:image"
+      content="https://bike-store-next.vercel.app/images/logo.svg"
+    />
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@Velocity Wheels" />
+    <meta property="twitter:title" content="Order success | Velocity Wheels" />
+    <meta
+      property="twitter:description"
+      content="Your journey to the genuine begins here."
+    />
+    <meta
+      property="twitter:image"
+      content="https://bike-store-next.vercel.app/images/logo.svg"
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://bike-store-html.vercel.app/order-success.html"
+    />
+    <link rel="icon" type="icon" href="/velocity/assets/images/favicon.png" />
+    <link rel="stylesheet" href="/velocity/assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/velocity/assets/css/select.min.css" />
+    <link rel="stylesheet" href="/velocity/assets/css/style.css" />
+  </head>
+  <body
+    class="flex min-h-screen flex-col bg-white font-aeonik text-base/[19px] font-normal text-black antialiased"
+  >
+    <!-- screen loader -->
+    <div
+      class="screen-loader fixed inset-0 z-[60] grid place-content-center bg-white"
+    >
+      <img
+        src="assets/images/loader.gif"
+        alt="loader"
+        loading="lazy"
+        class="h-auto w-[600px]"
+      />
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 border-b border-gray-100 bg-white">
+      <div
+        class="container flex items-center justify-between gap-5 py-3.5 lg:py-6"
+      >
+        <div class="shrink-0 grow-0 lg:w-1/4">
+          <a href="/velocity/index.html">
+            <img
+              src="/velocity/assets/images/logo.svg"
+              alt="Bike Store"
+              loading="lazy"
+              class="w-28 shrink-0 lg:w-[140px]"
+            />
+          </a>
+        </div>
+        <!-- Overlay  -->
+        <div
+          class="overlay fixed inset-0 z-40 hidden bg-black/80"
+          onclick="toggleMenu()"
+        ></div>
+        <div
+          class="menus bg-gray-light fixed -left-full top-0 z-50 flex h-screen w-80 grow flex-col overflow-y-auto bg-white px-4 pb-5 transition-all duration-500 lg:static lg:col-span-3 lg:h-auto lg:w-auto lg:max-w-none lg:flex-row lg:items-center lg:overflow-y-visible lg:bg-transparent lg:p-0 lg:pb-0"
+        >
+          <div
+            class="sticky top-0 -mx-4 flex items-center justify-between border-b border-black bg-white px-4 lg:hidden"
+          >
+            <a
+              href="/velocity/index.html"
+              class="my-5 inline-block shrink-0 transition hover:opacity-80"
+            >
+              <img
+                src="/velocity/assets/images/logo.svg"
+                alt="Bike Store"
+                loading="lazy"
+                class="w-28 shrink-0 lg:w-[140px]"
+              />
+            </a>
+            <button
+              type="button"
+              onclick="toggleMenu()"
+              class="hover:opacity-80"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-6 shrink-0"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </button>
+          </div>
+          <ul
+            class="flex grow flex-col divide-y divide-gray-100 lg:w-1/2 lg:flex-row lg:justify-center lg:gap-4 lg:divide-y-0 xl:gap-[30px]"
+          >
+            <li>
+              <a href="/velocity/index.html" class="nav-links">Home</a>
+            </li>
+            <li>
+              <a href="/woman-cycle.html" class="nav-links">women</a>
+            </li>
+            <li>
+              <a href="/kids-cycle.html" class="nav-links">kids</a>
+            </li>
+
+            <li>
+              <a href="/cycle-collections.html" class="nav-links"
+                >collections</a
+              >
+            </li>
+            <li>
+              <a href="/about-us.html" class="nav-links">About us</a>
+            </li>
+            <li>
+              <a href="/blogs.html" class="nav-links">Blog</a>
+            </li>
+            <li class="lg:hidden">
+              <!-- Responsive dropdown-menu -->
+              <div class="relative block lg:hidden">
+                <button
+                  onclick="dropDown()"
+                  type="button"
+                  class="nav-links course-accordion justify-between duration-300 focus-visible:outline-none"
+                >
+                  User profile
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="downarrow size-4 shrink-0 duration-300"
+                  >
+                    <path
+                      d="M4.00006 6L8.00006 10L12.0001 6"
+                      stroke="currentcolor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  class="course-panel ml-3 divide-y divide-gray-100 text-xs font-medium uppercase text-black"
+                >
+                  <a
+                    class="flex items-center gap-1.5 border-t border-gray-100 px-2 py-1.5 transition hover:text-gray"
+                    href="/contact-us"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="size-3.5 shrink-0"
+                    >
+                      <path
+                        d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"
+                      ></path>
+                    </svg>
+                    Help Center
+                  </a>
+                  <a
+                    class="flex items-center gap-1.5 px-2 py-1.5 transition hover:text-gray"
+                    href="#"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="size-3.5 shrink-0"
+                    >
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" x2="9" y1="12" y2="12"></line>
+                    </svg>
+                    Sign out
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="flex shrink-0 items-center justify-end gap-2.5 lg:w-1/4 xl:gap-[26px]"
+        >
+          <div
+            class="order-2 flex items-center justify-end gap-2.5 lg:order-1 lg:grow xl:gap-[26px]"
+          >
+            <!-- Search icon -->
+            <div class="relative grid lg:grow">
+              <button
+                type="button"
+                class="size-5 shrink-0 text-black transition hover:text-gray/90 2xl:ml-auto"
+                onclick="search()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-5"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <span class="sr-only">Search</span>
+              </button>
+
+              <div
+                class="search-bar invisible absolute right-0 top-full mt-5 w-0 overflow-hidden rounded-[10px] bg-gray-100 p-2 opacity-0 shadow-sm transition-all duration-500 lg:mt-8"
+              >
+                <form class="relative">
+                  <input
+                    type="text"
+                    placeholder="Search for Cycle"
+                    class="form-input w-full py-1 pr-6 font-medium sm:py-1.5"
+                  />
+                  <button
+                    type="button"
+                    class="text-primary absolute right-0 top-1/2 -translate-y-1/2 hover:opacity-80"
+                    onclick="search()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-x size-5"
+                    >
+                      <path d="M18 6 6 18"></path>
+                      <path d="m6 6 12 12"></path>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!-- Add Cart -->
+            <button
+              type="button"
+              class="relative size-5 shrink-0 text-black transition hover:text-gray/90"
+              onclick="toggleCartDrawer()"
+            >
+              <span
+                class="absolute -right-2 -top-2 grid h-[18px] min-w-[18px] place-content-center rounded-full bg-gray px-1.5 py-0.5 text-sm font-bold text-white"
+                >1</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5"
+              >
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              <span class="sr-only">My cart</span>
+            </button>
+            <div
+              class="cart-overlay fixed inset-0 z-40 hidden bg-black/80"
+              onclick="toggleCartDrawer()"
+            ></div>
+            <div
+              class="cart-drawer fixed -right-full top-0 z-50 flex h-screen w-full max-w-[700px] flex-col overflow-y-auto bg-white transition-all duration-500"
+            >
+              <div
+                class="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white p-4 lg:px-10 lg:py-[30px]"
+              >
+                <div class="text-xl font-medium lg:text-3xl">Cart</div>
+                <button
+                  type="button"
+                  class="shrink-0"
+                  onclick="toggleCartDrawer()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-x size-5 shrink-0 lg:size-6"
+                  >
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <!-- Empty cart  -->
+              <!-- <div
+                                class="p-5 min-h-[calc(100vh-97px)] flex items-center justify-center text-center flex-col "
+                            >
+                                <div class="max-w-32">
+                                    <image
+                                        src="assets/images/my-card.png"
+                                        alt="My card"
+                                        class="h-full w-full"
+                                        loading="lazy"
+                                        width="400"
+                                        height="400"
+                                    />
+                                </div>
+                                <div class="max-w-xs">
+                                    <h1
+                                        class="mb-4 font-roboto text-xl font-medium italic text-gray lg:text-2xl"
+                                    >
+                                        Currently Empty
+                                    </h1>
+                                    <a
+                                        href="/cycle-collections.html"
+                                        class="uppercase btn"
+                                    >
+                                        ADD ITEMS
+                                    </a>
+                                </div>
+                            </div> -->
+
+              <div class="flex grow flex-col">
+                <div class="grow px-4 lg:px-10">
+                  <div class="divide-y divide-gray-100">
+                    <div class="flex gap-5 py-[30px] lg:items-center">
+                      <a
+                        class="group relative flex size-20 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white sm:size-24 lg:size-[130px]"
+                        href="/cycle-details.html"
+                      >
+                        <span
+                          class="absolute -right-2 -top-2 grid min-w-[24px] place-content-center rounded-full bg-gray px-1.5 py-0.5 font-bold text-white sm:h-[24px]"
+                          >1</span
+                        >
+                        <img
+                          alt="Visa"
+                          loading="lazy"
+                          width="940"
+                          height="700"
+                          data-nimg="1"
+                          class="h-full w-full object-contain transition group-hover:opacity-80"
+                          src="/velocity/assets/images/cycle-hero-img1.png"
+                        />
+                      </a>
+                      <div
+                        class="flex grow flex-row items-center justify-between gap-5"
+                      >
+                        <div class="space-y-3 lg:space-y-5">
+                          <div class="space-y-1.5">
+                            <a
+                              class="line-clamp-2 text-lg/5 transition hover:opacity-80 lg:text-[22px]/[26px]"
+                              href="/cycle-details.html"
+                              >The Horizon Cruiser Bicycle</a
+                            >
+                            <p
+                              class="line-clamp-2 shrink-0 text-lg/[22px] font-medium lg:hidden lg:text-xl/6"
+                            >
+                              $9,999.00
+                            </p>
+                          </div>
+                          <div class="flex gap-1.5">
+                            <div
+                              class="inline-flex h-full rounded-md border border-black/10 px-2 lg:rounded-xl lg:px-3"
+                            >
+                              <div class="inline-flex items-center sm:gap-1">
+                                <button
+                                  type="button"
+                                  class="bg-gray-300 grid size-5 shrink-0 place-content-center rounded-xl text-gray hover:text-black"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-minus size-4 lg:size-5"
+                                  >
+                                    <path d="M5 12h14"></path>
+                                  </svg>
+                                  <span class="sr-only">Minus</span>
+                                </button>
+                                <input
+                                  class="count flex w-6 rounded-md border-0 bg-transparent px-0.5 py-1.5 text-center text-sm/tight font-medium lg:w-10 lg:py-2.5 lg:text-lg/[22px]"
+                                  placeholder="1"
+                                  type="text"
+                                />
+                                <button
+                                  type="button"
+                                  class="bg-gray-300 text- grid size-5 shrink-0 place-content-center rounded-xl text-gray hover:text-black"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-plus size-4 lg:size-5"
+                                  >
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5v14"></path>
+                                  </svg>
+                                  <span class="sr-only">Plus</span>
+                                </button>
+                              </div>
+                            </div>
+                            <button
+                              class="focus-visible:ring-ring default inline-flex h-auto items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-black/10 p-1.5 px-3 py-1 font-aeonik text-sm font-medium text-gray transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 md:text-base/none lg:hidden lg:rounded-[10px] lg:text-base/[19px]"
+                              type="button"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                        <div class="space-y-3 lg:space-y-5">
+                          <p
+                            class="line-clamp-2 hidden shrink-0 text-lg/[22px] font-medium lg:block lg:text-xl/6"
+                          >
+                            $9,999.00
+                          </p>
+                          <button
+                            class="focus-visible:ring-ring default hidden items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-black/10 px-4 py-2.5 font-aeonik text-sm font-medium text-gray transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 md:text-base/none lg:block lg:rounded-[10px] lg:text-base/[19px]"
+                            type="button"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-5 py-[30px] lg:items-center">
+                      <a
+                        class="group relative flex size-20 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white sm:size-24 lg:size-[130px]"
+                        href="/cycle-details.html"
+                        ><span
+                          class="absolute -right-2 -top-2 grid min-w-[24px] place-content-center rounded-full bg-gray px-1.5 py-0.5 font-bold text-white sm:h-[24px]"
+                          >1</span
+                        ><img
+                          alt="Visa"
+                          loading="lazy"
+                          width="940"
+                          height="700"
+                          decoding="async"
+                          data-nimg="1"
+                          class="h-full w-full object-contain transition group-hover:opacity-80"
+                          src="/velocity/assets/images/cycle-hero-img1.png"
+                      /></a>
+                      <div
+                        class="flex grow flex-row items-center justify-between gap-5"
+                      >
+                        <div class="space-y-3 lg:space-y-5">
+                          <div class="space-y-1.5">
+                            <a
+                              class="line-clamp-2 text-lg/5 transition hover:opacity-80 lg:text-[22px]/[26px]"
+                              href="/cycle-details.html"
+                              >Velocity Roadster</a
+                            >
+                            <p
+                              class="line-clamp-2 shrink-0 text-lg/[22px] font-medium lg:hidden lg:text-xl/6"
+                            >
+                              $8,999.00
+                            </p>
+                          </div>
+                          <div class="flex gap-1.5">
+                            <div
+                              class="inline-flex h-full rounded-md border border-black/10 px-2 lg:rounded-xl lg:px-3"
+                            >
+                              <div class="inline-flex items-center sm:gap-1">
+                                <button
+                                  type="button"
+                                  class="bg-gray-300 grid size-5 shrink-0 place-content-center rounded-xl text-gray hover:text-black"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-minus size-4 lg:size-5"
+                                  >
+                                    <path d="M5 12h14"></path>
+                                  </svg>
+                                  <span class="sr-only">Minus</span>
+                                </button>
+                                <input
+                                  class="count flex w-6 rounded-md border-0 bg-transparent px-0.5 py-1.5 text-center text-sm/tight font-medium lg:w-10 lg:py-2.5 lg:text-lg/[22px]"
+                                  placeholder="1"
+                                  min="1"
+                                  type="text"
+                                  value="1"
+                                /><button
+                                  type="button"
+                                  class="bg-gray-300 text- grid size-5 shrink-0 place-content-center rounded-xl text-gray hover:text-black"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-plus size-4 lg:size-5"
+                                  >
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5v14"></path>
+                                  </svg>
+                                  <span class="sr-only">Plus</span>
+                                </button>
+                              </div>
+                            </div>
+                            <button
+                              class="focus-visible:ring-ring default inline-flex h-auto items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-black/10 p-1.5 px-3 py-1 font-aeonik text-sm font-medium text-gray transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 md:text-base/none lg:hidden lg:rounded-[10px] lg:text-base/[19px]"
+                              type="button"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                        <div class="space-y-3 lg:space-y-5">
+                          <p
+                            class="line-clamp-2 hidden shrink-0 text-lg/[22px] font-medium lg:block lg:text-xl/6"
+                          >
+                            $8,999.00
+                          </p>
+                          <button
+                            class="focus-visible:ring-ring default hidden items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-black/10 px-4 py-2.5 font-aeonik text-sm font-medium text-gray transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 md:text-base/none lg:block lg:rounded-[10px] lg:text-base/[19px]"
+                            type="button"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between gap-5 border-y border-gray-100 py-5 text-lg/[22px] font-medium"
+                  >
+                    <p class="text-gray">Total</p>
+                    <p>$9,999.00</p>
+                  </div>
+                </div>
+                <div class="sticky bottom-0 block bg-white px-4 py-4 lg:px-10">
+                  <a class="btn w-full" href="/order-success.html">
+                    Check Out
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- user-menu -->
+            <div class="relative hidden lg:grid">
+              <button
+                type="button"
+                onclick="toggleUserMenu()"
+                class="size-5 shrink-0 text-black transition hover:text-gray/90"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-5 shrink-0"
+                >
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="sr-only">User profile</span>
+              </button>
+              <div
+                class="user-overlay fixed inset-0 z-40 hidden"
+                onclick="toggleUserMenu()"
+              ></div>
+              <div
+                class="user-menu invisible absolute right-0 top-full z-50 mt-3 min-w-[200px] space-y-1 overflow-hidden rounded-lg border bg-white p-1.5 text-sm font-medium text-black opacity-0 shadow-md ring-1 ring-gray-100"
+              >
+                <div
+                  class="relative flex cursor-pointer items-center rounded-[10px] p-0 text-sm outline-none hover:bg-gray-100"
+                >
+                  <a
+                    class="!bg-gray-400 flex items-center gap-1.5 rounded-lg px-3 py-2 !text-black"
+                    href="/contact-us"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-headphones size-[18px] shrink-0"
+                    >
+                      <path
+                        d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"
+                      ></path>
+                    </svg>
+                    Help Center
+                  </a>
+                </div>
+                <div
+                  class="relative flex cursor-pointer items-center rounded-[10px] p-0 text-sm outline-none hover:bg-gray-100"
+                >
+                  <a
+                    class="false flex items-center gap-1.5 rounded-lg px-3 py-2"
+                    href="#"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-log-out size-[18px] shrink-0"
+                    >
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" x2="9" y1="12" y2="12"></line>
+                    </svg>
+                    Sign out
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <button
+              type="button"
+              class="size-6 shrink-0 text-black transition hover:text-gray/90 lg:hidden"
+              onclick="toggleMenu()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-menu"
+              >
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+              <span class="sr-only">Menu</span>
+            </button>
+          </div>
+          <a
+            href="/cycle-collections.html"
+            class="btn order-1 p-1.5 py-2 text-xs/3 uppercase md:px-2.5 lg:order-2 lg:text-sm/[19px] xl:px-4 xl:py-2.5"
+          >
+            Order now
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="flex min-h-[calc(100vh-61px)] items-center justify-center px-4 pt-12 lg:min-h-[calc(100vh-90px)] lg:py-20"
+    >
+      <div class="w-full max-w-xl text-center text-gray">
+        <div class="pb-5">
+          <img
+            alt="Order success"
+            src="assets/images/order-success.png"
+            width="195"
+            height="155"
+            class="mx-auto"
+          />
+        </div>
+        <div class="mt-5 space-y-2.5 font-medium">
+          <h2 class="text-2xl font-medium text-black">
+            Hey Soufien,
+            <span class="text-2xl" aria-label="smiley" role="img">😊</span>
+          </h2>
+
+          <p class="text-lg/5">Thank you ! Your order is completed !</p>
+          <p class="text-sm">
+            You will receive an order confirmation email with details of your
+            order.
+          </p>
+          <p class="!mt-5 text-base/5 text-black underline underline-offset-2">
+            Your Order ID: <span class="font-bold">PC32565</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="mt-auto bg-success">
+      <div
+        class="overflow-hidden rounded-b-[30px] bg-white xl:rounded-b-[80px]"
+      >
+        <div class="bg-gradient-to-l from-bleach to-bleach-100 py-px">
+          <div class="bg-white">
+            <div
+              class="bg-gradient-to-l from-bleach/10 to-bleach-100/10 py-10 lg:py-14"
+            >
+              <div
+                class="container relative flex flex-col justify-between gap-10 lg:flex-row lg:gap-14"
+              >
+                <div>
+                  <a href="/velocity/index.html" class="mb-8 inline-flex sm:mb-[38px]">
+                    <img
+                      src="/velocity/assets/images/footer-logo.svg"
+                      alt="Bike Store"
+                      loading="lazy"
+                      class="w-28 shrink-0 lg:w-[140px]"
+                    />
+                  </a>
+                  <div class="flex gap-3 text-white">
+                    <a
+                      href="https://x.com/sbthemes_com"
+                      class="group grid size-[30px] place-content-center rounded-full border-2 border-white bg-[#27D045] shadow-[0_0_25px_0_rgba(14,34,25,0.08)] transition hover:scale-110"
+                      target="_blank"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.00011 15.4446C12.5593 15.4446 15.4446 12.5593 15.4446 9.00011C15.4446 5.44094 12.5593 2.55566 9.00011 2.55566C5.44094 2.55566 2.55566 5.44094 2.55566 9.00011C2.55566 12.5593 5.44094 15.4446 9.00011 15.4446Z"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                        />
+                        <path
+                          d="M3.11108 12.6665L2.08887 16.2888L5.84443 15.2443L6.04441 14.0888L3.59996 14.8665L4.24441 12.5332L3.11108 12.6665Z"
+                          fill="currentColor"
+                        />
+                        <path
+                          d="M3.55566 14.8891C3.55566 14.8668 4.33344 12.2891 4.33344 12.2891L6.20011 14.0446L3.55566 14.8891Z"
+                          fill="#27D045"
+                        />
+                        <path
+                          d="M6.2154 5.80739C5.9885 5.96483 5.79507 6.16569 5.64631 6.39837C5.49754 6.63105 5.3964 6.89092 5.34872 7.16294C5.23761 8.02961 5.77095 8.9185 5.77095 8.9185C6.31195 9.72339 6.95425 10.4553 7.68206 11.0963C8.31871 11.6001 9.04154 11.9841 9.81539 12.2296C10.2668 12.4098 10.7606 12.4561 11.2376 12.3629C11.6604 12.2469 12.0345 11.9975 12.3043 11.6518C12.3675 11.4946 12.4122 11.3305 12.4376 11.1629C12.4631 11.0159 12.4631 10.8656 12.4376 10.7185C12.4154 10.5629 10.8154 9.82961 10.6598 9.87405C10.5043 9.91849 10.3709 10.2074 10.1932 10.4518C10.0154 10.6963 9.94873 10.8074 9.77095 10.8074C9.59317 10.8074 8.81537 10.4963 8.08204 9.82961C7.66318 9.46642 7.33583 9.00963 7.1265 8.49627C7.1265 8.49627 7.25984 8.34072 7.43762 8.09627C7.57595 7.9447 7.67511 7.76161 7.72649 7.56294C7.72649 7.45183 7.10427 5.87405 6.94871 5.80739C6.70547 5.77319 6.45865 5.77319 6.2154 5.80739Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="sr-only">whatsapp</span>
+                    </a>
+                    <a
+                      href="https://x.com/sbthemes_com"
+                      class="group grid size-[30px] place-content-center overflow-hidden rounded-full border-2 border-white bg-[url('/velocity/assets/images/insta-bg.png')] bg-cover bg-no-repeat object-cover shadow-[0_0_25px_0_rgba(14,34,25,0.08)] transition hover:scale-110"
+                      target="_blank"
+                    >
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 17 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.41716 0.724121C6.32803 0.724121 6.06585 0.733256 5.24533 0.770596C4.42641 0.808097 3.86743 0.937746 3.37832 1.12797C2.87238 1.32445 2.44321 1.58727 2.01564 2.015C1.58775 2.44257 1.32493 2.87174 1.12781 3.37752C0.937104 3.86679 0.807295 4.42593 0.770436 5.24453C0.733737 6.06505 0.724121 6.32739 0.724121 8.41652C0.724121 10.5056 0.733416 10.767 0.770596 11.5876C0.808257 12.4065 0.937906 12.9655 1.12797 13.4546C1.32461 13.9605 1.58743 14.3897 2.01516 14.8172C2.44257 15.2451 2.87174 15.5086 3.37736 15.7051C3.86679 15.8953 4.42593 16.0249 5.24469 16.0624C6.06521 16.0998 6.32723 16.1089 8.4162 16.1089C10.5055 16.1089 10.7669 16.0998 11.5874 16.0624C12.4063 16.0249 12.9659 15.8953 13.4554 15.7051C13.9611 15.5086 14.3897 15.2451 14.8171 14.8172C15.245 14.3897 15.5078 13.9605 15.7049 13.4547C15.894 12.9655 16.0238 12.4063 16.0623 11.5877C16.0991 10.7672 16.1088 10.5056 16.1088 8.41652C16.1088 6.32739 16.0991 6.06521 16.0623 5.24469C16.0238 4.42577 15.894 3.86679 15.7049 3.37768C15.5078 2.87174 15.245 2.44257 14.8171 2.015C14.3892 1.58711 13.9613 1.32429 13.4549 1.12797C12.9645 0.937746 12.4052 0.808097 11.5863 0.770596C10.7657 0.733256 10.5045 0.724121 8.41476 0.724121H8.41716ZM7.72709 2.11036C7.9319 2.11004 8.16043 2.11036 8.41716 2.11036C10.471 2.11036 10.7145 2.11773 11.5255 2.15459C12.2755 2.18888 12.6826 2.3142 12.9538 2.41949C13.3127 2.55892 13.5687 2.72559 13.8377 2.99482C14.107 3.26406 14.2736 3.52047 14.4134 3.87945C14.5187 4.15028 14.6442 4.55734 14.6783 5.30735C14.7152 6.11826 14.7232 6.36185 14.7232 8.41476C14.7232 10.4677 14.7152 10.7113 14.6783 11.5222C14.644 12.2722 14.5187 12.6792 14.4134 12.9501C14.274 13.309 14.107 13.5647 13.8377 13.8337C13.5685 14.103 13.3129 14.2696 12.9538 14.4091C12.6829 14.5148 12.2755 14.6398 11.5255 14.6741C10.7146 14.711 10.471 14.719 8.41716 14.719C6.36313 14.719 6.1197 14.711 5.30879 14.6741C4.55878 14.6395 4.15173 14.5142 3.88041 14.4089C3.52143 14.2695 3.26502 14.1028 2.99578 13.8336C2.72655 13.5643 2.55988 13.3086 2.42013 12.9494C2.31485 12.6786 2.18936 12.2715 2.15523 11.5215C2.11837 10.7106 2.111 10.467 2.111 8.41284C2.111 6.35864 2.11837 6.11633 2.15523 5.30543C2.18952 4.55542 2.31485 4.14836 2.42013 3.8772C2.55956 3.51823 2.72655 3.26181 2.99578 2.99258C3.26502 2.72334 3.52143 2.55668 3.88041 2.41693C4.15157 2.31116 4.55878 2.18616 5.30879 2.1517C6.01842 2.11965 6.29342 2.11004 7.72709 2.10843V2.11036ZM12.5233 3.38761C12.0137 3.38761 11.6002 3.8006 11.6002 4.31038C11.6002 4.82 12.0137 5.23347 12.5233 5.23347C13.0329 5.23347 13.4464 4.82 13.4464 4.31038C13.4464 3.80076 13.0329 3.38729 12.5233 3.38729V3.38761ZM8.41716 4.46615C6.23556 4.46615 4.46679 6.23492 4.46679 8.41652C4.46679 10.5981 6.23556 12.3661 8.41716 12.3661C10.5988 12.3661 12.3669 10.5981 12.3669 8.41652C12.3669 6.23492 10.5988 4.46615 8.41716 4.46615ZM8.41716 5.85239C9.8332 5.85239 10.9813 7.00032 10.9813 8.41652C10.9813 9.83256 9.8332 10.9807 8.41716 10.9807C7.00096 10.9807 5.85303 9.83256 5.85303 8.41652C5.85303 7.00032 7.00096 5.85239 8.41716 5.85239Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="sr-only">instagram</span>
+                    </a>
+                    <a
+                      href="https://x.com/sbthemes_com"
+                      class="group grid size-[30px] place-content-center rounded-full border-2 border-white bg-[#0866FE] shadow-[0_0_25px_0_rgba(14,34,25,0.08)] transition hover:scale-110"
+                      target="_blank"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.00197 1.49951C4.85982 1.49951 1.50195 4.85737 1.50195 8.99951C1.50195 12.743 4.24459 15.8457 7.83009 16.4084V11.1675H5.92578V8.99951H7.83009V7.34717C7.83009 5.46748 8.94977 4.4292 10.6629 4.4292C11.4835 4.4292 12.3418 4.57568 12.3418 4.57568V6.42139H11.396C10.4644 6.42139 10.1738 6.99952 10.1738 7.59266V8.99951H12.2539L11.9214 11.1675H10.1738V16.4084C13.7593 15.8457 16.502 12.743 16.502 8.99951C16.502 4.85737 13.1441 1.49951 9.00197 1.49951Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="sr-only">facebook</span>
+                    </a>
+                    <a
+                      href="https://x.com/sbthemes_com"
+                      class="group grid size-[30px] place-content-center rounded-full border-2 border-white bg-[#FD0000] shadow-[0_0_25px_0_rgba(14,34,25,0.08)] transition hover:scale-110"
+                      target="_blank"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.18195 2.99951C9.58253 3.00172 10.5847 3.01141 11.6496 3.05406L12.0272 3.07052C13.0993 3.12128 14.1705 3.208 14.7018 3.35614C15.4105 3.55522 15.9675 4.13614 16.1558 4.8725C16.4555 6.04182 16.493 8.32406 16.4977 8.87636L16.4984 8.99081V8.99884C16.4984 8.99884 16.4984 9.00161 16.4984 9.00694L16.4977 9.12139C16.493 9.67369 16.4555 11.9559 16.1558 13.1253C15.9649 13.8643 15.4079 14.4453 14.7018 14.6416C14.1705 14.7897 13.0993 14.8764 12.0272 14.9272L11.6496 14.9436C10.5847 14.9863 9.58253 14.996 9.18195 14.9982L9.00615 14.9988H8.99835C8.99835 14.9988 8.99572 14.9988 8.99055 14.9988L8.8149 14.9982C7.9671 14.9936 4.42231 14.9553 3.29491 14.6416C2.58622 14.4425 2.02921 13.8616 1.84093 13.1253C1.54117 11.9559 1.5037 9.67369 1.49902 9.12139V8.87636C1.5037 8.32406 1.54117 6.04182 1.84093 4.8725C2.03182 4.13341 2.58883 3.5525 3.29491 3.35614C4.42231 3.04243 7.9671 3.00418 8.8149 2.99951H9.18195ZM7.49836 6.37387V11.6238L11.9984 8.99884L7.49836 6.37387Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="sr-only">youtube</span>
+                    </a>
+                    <a
+                      href="https://x.com/sbthemes_com"
+                      class="group grid size-[30px] place-content-center rounded-full border-2 border-white bg-[#1D9BF0] shadow-[0_0_25px_0_rgba(14,34,25,0.08)] transition hover:scale-110"
+                      target="_blank"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.6594 4.2413C16.0868 4.49458 15.4796 4.66093 14.858 4.73485C15.5129 4.34276 16.0031 3.72594 16.237 2.9993C15.6215 3.36497 14.9479 3.62234 14.2454 3.76022C13.6523 3.12756 12.8235 2.76904 11.9564 2.77002C10.2245 2.77002 8.81978 4.17422 8.81978 5.90689C8.81978 6.1527 8.84798 6.39108 8.9007 6.62108C6.29286 6.4898 3.98256 5.2418 2.43509 3.34382C2.15647 3.82252 2.01004 4.36665 2.01078 4.92052C2.01078 6.00871 2.5647 6.9692 3.40612 7.53152C2.90803 7.51577 2.42091 7.38125 1.98539 7.13906C1.98491 7.15224 1.98491 7.16542 1.98491 7.17788C1.98491 8.69807 3.06615 9.96617 4.5015 10.2541C4.2321 10.327 3.95424 10.3638 3.67517 10.3636C3.47248 10.3636 3.27579 10.3449 3.0846 10.3082C3.48399 11.5541 4.64165 12.4612 6.0147 12.4861C4.9036 13.3581 3.53152 13.8312 2.11908 13.8292C1.86909 13.8294 1.61932 13.8146 1.37109 13.7851C2.80503 14.7069 4.47414 15.1961 6.17882 15.1943C11.9487 15.1943 15.1035 10.4149 15.1035 6.2701C15.1035 6.13449 15.1002 5.99841 15.0942 5.86424C15.7082 5.4206 16.2383 4.87102 16.6594 4.2413Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="sr-only">twitter</span>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col gap-8 gap-y-10 md:flex-row xl:gap-[100px]"
+                >
+                  <div class="w-full grow md:max-w-[338px]">
+                    <h3 class="mb-[30px] text-gray">Contact info</h3>
+                    <div class="space-y-5">
+                      <div class="flex gap-2.5">
+                        <span class="size-[18px] text-teal">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-phone"
+                          >
+                            <path
+                              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                            />
+                          </svg>
+                        </span>
+                        <a
+                          href="tel:+1 708-359-5968"
+                          class="font-medium transition hover:opacity-80"
+                          >+1 708-359-5968</a
+                        >
+                      </div>
+                      <div class="flex gap-2.5">
+                        <span class="size-[18px] text-teal">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="size-[18px]"
+                          >
+                            <path
+                              d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                            />
+                            <circle cx="12" cy="10" r="3" />
+                          </svg>
+                        </span>
+                        <p class="font-medium">
+                          82 Flinderation Road, Bridgeview, IL 60455
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-full grow md:max-w-[400px]">
+                    <h3 class="mb-[30px] leading-6 text-gray">
+                      EXTRA! Read All About It: New Arrivals, Observations and
+                      Events.
+                    </h3>
+                    <div
+                      class="flex flex-col items-start gap-2.5 gap-y-4 sm:flex-row sm:items-baseline"
+                    >
+                      <input
+                        type="text"
+                        placeholder="Enter email address"
+                        class="w-full border-b border-gray bg-transparent pb-2.5 text-base/5 font-medium text-black placeholder:font-medium placeholder:text-gray focus:outline-none"
+                      />
+                      <button
+                        type="button"
+                        class="group inline-flex gap-5 whitespace-nowrap border-b border-black pb-1.5 text-base/5 font-medium text-black outline-none"
+                      >
+                        <span>Get on board</span>
+                        <span
+                          class="transition-all group-hover:-mr-1.5 group-hover:ml-1.5"
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M18 8L22 12L18 16"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M2 12H22"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container grid grid-cols-2 gap-2.5 gap-y-10 py-10 font-medium sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 lg:py-14"
+        >
+          <div>
+            <h2 class="mb-5 uppercase text-black">Bikes</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link"
+                >Mountain bike</a
+              >
+              <a href="/cycle-collections.html" class="footer-link">Road</a>
+              <a href="/cycle-collections.html" class="footer-link">Gravel</a>
+              <a href="/cycle-collections.html" class="footer-link">Trekking</a>
+              <a href="/cycle-collections.html" class="footer-link">Women</a>
+            </div>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link"></a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">E-Bikes</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link"
+                >Mountain bike</a
+              >
+              <a href="/cycle-collections.html" class="footer-link">Trekking</a>
+              <a href="/cycle-collections.html" class="footer-link">Gravel</a>
+              <a href="/cycle-collections.html" class="footer-link"
+                >Transport</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">Kids</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link"
+                >2-4 Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >3-5 Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >5-7 Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >7-9 Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >9-11 Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >10+ Years</a
+              >
+              <a href="/cycle-collections.html" class="footer-link">E-bikes</a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">Gear</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link">Helmets</a>
+              <a href="/cycle-collections.html" class="footer-link">Clothing</a>
+              <a href="/cycle-collections.html" class="footer-link">Gloves</a>
+              <a href="/cycle-collections.html" class="footer-link">Shoes</a>
+              <a href="/cycle-collections.html" class="footer-link"
+                >Backpacks</a
+              >
+              <a href="/cycle-collections.html" class="footer-link">Bags</a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">Equipment</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/cycle-collections.html" class="footer-link">Lights</a>
+              <a href="/cycle-collections.html" class="footer-link"
+                >Bike locks</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >Pedals & cleats</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >Grips & bar ends</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >Kickstands</a
+              >
+              <a href="/cycle-collections.html" class="footer-link">Saddle</a>
+              <a href="/cycle-collections.html" class="footer-link"
+                >Mounts & adapters</a
+              >
+              <a href="/cycle-collections.html" class="footer-link"
+                >Spare parts</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">Pages</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/velocity/index.html" class="footer-link">Home</a>
+              <a href="/about-us.html" class="footer-link">About Us</a>
+              <a href="/cycle-collections.html" class="footer-link">
+                Collections</a
+              >
+              <a href="/blogs.html" class="footer-link">Blog</a>
+              <a href="/blog-details.html" class="footer-link">Blog details</a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-5 uppercase text-black">legal titles</h2>
+            <div class="flex flex-col items-start gap-2 xl:gap-3.5">
+              <a href="/contact-us.html" class="footer-link">Contact Us</a>
+              <a href="/warranty-policy.html" class="footer-link">Warranty</a>
+              <a href="/delivery-policy.html" class="footer-link">Delivery</a>
+              <a href="/returns-policy.html" class="footer-link">Returns</a>
+              <a href="/privacy-policy.html" class="footer-link"
+                >Privacy Policy</a
+              >
+              <a href="/terms-and-conditions.html" class="footer-link"
+                >Terms & Conditions</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-l from-bleach to-bleach-100 pt-px">
+          <div class="bg-white py-5">
+            <div
+              class="container mx-auto flex w-full flex-col items-center justify-between gap-3 text-sm/4 font-medium text-black lg:flex-row xl:max-w-[1500px] xl:px-[30px]"
+            >
+              <p class="order-2 text-center md:order-1 md:text-left">
+                © 2022-<span class="curr-year">2023</span>&nbsp; Velocity
+                Wheels, Inc. All rights reserved.
+              </p>
+              <div class="order-1 flex gap-[30px] md:order-2">
+                <a
+                  class="transition hover:underline"
+                  href="/privacy-policy.html"
+                  >Privacy Policy</a
+                ><a
+                  class="transition hover:underline"
+                  href="/terms-and-conditions.html"
+                  >Terms &amp; Conditions</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-2 py-5 lg:py-10">
+        <img
+          src="/velocity/assets/images/footer-logo2.svg"
+          alt="Bike Store"
+          loading="lazy"
+          class="mx-auto h-full w-60 lg:w-96 xl:w-[693px]"
+        />
+      </div>
+    </footer>
+
+    <script src="/velocity/assets/js/custom.js"></script>
+    <script src="/velocity/assets/js/select.min.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Order success",
+        "url": "https://bike-store-next.vercel.app/order-success",
+        "description": "Your journey to the genuine begins here.",
+        "inLanguage": "en",
+        "image": "https://bike-store-next.vercel.app/images/logo.svg",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://bike-store-next.vercel.app"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Order success",
+              "item": "https://bike-store-next.vercel.app/order-success"
+            }
+          ]
+        }
+      }
+    </script>
+  </body>
+</html>

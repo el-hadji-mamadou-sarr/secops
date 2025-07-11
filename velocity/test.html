@@ -1,0 +1,770 @@
+<form id="payment-form" class="grid lg:grid-cols-2">
+  <!-- Left: Form details -->
+  <div
+    class="container order-2 ml-auto w-full divide-y divide-gray-100 py-12 lg:order-1 lg:!mr-0 lg:max-w-[570px] lg:px-10 xl:py-20 xl:pr-14"
+  >
+    <!-- Contact -->
+    <div class="space-y-2.5 pb-[30px] lg:space-y-4">
+      <h1 class="text-lg/[22px] font-medium">Contact</h1>
+      <input
+        id="email"
+        name="email"
+        required
+        class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+        placeholder="Email"
+        type="email"
+      />
+
+      <label class="flex items-center gap-2">
+        <div
+          class="group relative grid size-3.5 shrink-0 place-content-center rounded-sm border-[1.67px] border-gray bg-transparent has-[:checked]:border-gray has-[:checked]:bg-gray"
+        >
+          <input
+            type="checkbox"
+            name="subscribe"
+            class="absolute inset-0 size-full cursor-pointer opacity-0"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden size-2.5 stroke-[4px] text-white group-has-[:checked]:block"
+          >
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        </div>
+        <h2>Email me with news and offers</h2>
+      </label>
+    </div>
+
+    <!-- Delivery -->
+    <div class="space-y-2.5 py-[30px] lg:space-y-4">
+      <h2 class="text-lg/[22px] font-medium">Delivery</h2>
+      <div class="relative" x-data="select" @click.outside="open = false">
+        <button
+          type="button"
+          @click="toggle"
+          class="form-input relative flex w-full justify-between rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black [&>span]:line-clamp-1"
+        >
+          <span x-text="(select == '') ? 'Country/Region' : select"> </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5 shrink-0"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </button>
+        <div
+          class="border-white/6 absolute inset-x-0 top-full z-20 mt-1 max-h-40 w-full space-y-1 rounded-lg border bg-white p-1 text-gray shadow-md"
+          x-show="open"
+        >
+          <button
+            type="button"
+            class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+            @click="setSelect('Armenia')"
+            :class="(select === 'Armenia') && 'bg-gray-100 text-black'"
+          >
+            Armenia
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+              x-show="select === 'Armenia'"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+            @click="setSelect('Angola')"
+            :class="(select === 'Angola') && 'bg-gray-100 text-black'"
+          >
+            Angola
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+              x-show="select === 'Angola'"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+            @click="setSelect('Austria')"
+            :class="(select === 'Austria') && 'bg-gray-100 text-black'"
+          >
+            Austria
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+              x-show="select === 'Austria'"
+            >
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid gap-2.5 sm:grid-cols-2 lg:gap-4">
+        <input
+          class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+          placeholder="First name"
+          type="text"
+        /><input
+          class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+          placeholder="Last name"
+          type="text"
+        />
+      </div>
+      <input
+        class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+        placeholder="Street name & House number"
+        type="text"
+      /><input
+        class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+        placeholder="Landmark"
+        type="text"
+      />
+      <div class="grid gap-2.5 sm:grid-cols-2 lg:gap-4">
+        <input
+          class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+          placeholder="Postal code"
+          type="text"
+        /><input
+          class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+          placeholder="City"
+          type="text"
+        />
+      </div>
+      <input
+        class="form-input w-full rounded-xl border border-black/10 bg-transparent p-3.5 text-base/5 font-normal outline-none placeholder:text-gray focus:border-black"
+        placeholder="Phone number"
+        type="text"
+      />
+      <label class="flex items-center gap-2">
+        <div
+          class="group relative grid size-3.5 shrink-0 place-content-center rounded-sm border-[1.67px] border-gray bg-transparent has-[:checked]:border-gray has-[:checked]:bg-gray"
+        >
+          <input
+            type="checkbox"
+            class="absolute inset-0 size-full cursor-pointer opacity-0"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden size-2.5 stroke-[4px] text-white group-has-[:checked]:block"
+          >
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        </div>
+        <h2>Save this information for the next time</h2>
+      </label>
+    </div>
+
+    <!-- Payment -->
+    <div class="space-y-[30px]">
+      <div class="space-y-2.5 py-[30px] lg:space-y-4">
+        <div
+          class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center"
+        >
+          <div>
+            <h2 class="mb-2 text-lg/[22px] font-medium">Payment</h2>
+            <p class="text-gray">All transactions are secure and encrypted.</p>
+          </div>
+          <button class="btn btn-outline border-black/10" onclick="addCards()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-plus size-5"
+            >
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+            Add cards
+          </button>
+          <div
+            class="card-model-overlay fixed inset-0 z-40 hidden bg-black/80"
+            onclick="addCards()"
+          ></div>
+          <div
+            id="add-cards-model"
+            class="fixed left-1/2 top-1/2 z-50 mx-auto hidden max-h-full w-full max-w-[425px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto"
+          >
+            <div class="relative w-full">
+              <div class="space-y-4 rounded-lg bg-white p-4">
+                <h2 class="text-lg font-semibold leading-none tracking-tight">
+                  Card details
+                </h2>
+                <button
+                  type="button"
+                  class="absolute -top-2 right-2 outline-none"
+                  onclick="addCards()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-x size-5"
+                  >
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                  </svg>
+                  <span class="sr-only">Close</span>
+                </button>
+                <!-- <div class="space-y-3.5">
+                      <input
+                        class="flex w-full rounded-xl border border-black/10 bg-transparent p-3.5 py-2.5 text-base/[19px] font-normal outline-none placeholder:text-gray"
+                        placeholder="card number"
+                        type="text"
+                      />
+                      <div class="flex gap-4">
+                        <input
+                          class="flex w-full rounded-xl border border-black/10 bg-transparent p-3.5 py-2.5 text-base/[19px] font-normal outline-none placeholder:text-gray"
+                          placeholder="Expiry date"
+                          type="text"
+                        /><input
+                          class="flex w-full rounded-xl border border-black/10 bg-transparent p-3.5 py-2.5 text-base/[19px] font-normal outline-none placeholder:text-gray"
+                          placeholder="CVC/CVV"
+                          type="text"
+                        />
+                      </div>
+                      <input
+                        class="flex w-full rounded-xl border border-black/10 bg-transparent p-3.5 py-2.5 text-base/[19px] font-normal outline-none placeholder:text-gray"
+                        placeholder="Cardholder name"
+                        type="text"
+                      />
+                    </div> -->
+
+                <!-- <div
+                      class="mt-4 rounded-xl border border-black/10 bg-white px-4 py-3"
+                    >
+                      <label class="text-gray-700 mb-1 block font-medium"
+                        >Card details</label
+                      >
+                      <div
+                        id="card-element"
+                        class="bg-gray-50 rounded-md border border-gray-200 p-2"
+                      ></div>
+                      <div
+                        id="card-errors"
+                        class="text-red-600 mt-2 text-sm"
+                      ></div>
+                    </div> -->
+
+                <div
+                  class="mt-4 rounded-xl border border-black/10 bg-white px-4 py-3"
+                >
+                  <label class="text-gray-700 mb-1 block font-medium"
+                    >Card details</label
+                  >
+                  <div
+                    id="card-element"
+                    class="bg-gray-50 rounded-md border border-gray-200 p-2"
+                  ></div>
+                  <div id="card-errors" class="text-red-600 mt-2 text-sm"></div>
+                </div>
+
+                <button
+                  class="focus-visible:ring-ring default inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-black bg-black px-4 py-2.5 font-aeonik text-sm/[19px] font-medium text-white transition-colors hover:bg-transparent hover:text-black focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 lg:rounded-[10px]"
+                  type="submit"
+                >
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="rounded-xl border border-black/10 px-4 py-3">
+          <div class="divide-y divide-black/10">
+            <div class="relative">
+              <div
+                class="course-accordion flex cursor-pointer pb-5 text-left text-base/5 font-medium transition-all"
+              >
+                <div class="flex w-full items-start gap-2.5">
+                  <div
+                    class="radio-check group relative mt-0.5 grid size-4 shrink-0 place-content-center rounded-full border-[1.5px] border-gray has-[:checked]:border-black"
+                  >
+                    <span
+                      class="size-3 rounded-full bg-transparent group-has-[:checked]:bg-black"
+                    ></span>
+                    <input
+                      type="radio"
+                      name="payment"
+                      class="absolute inset-0 size-full opacity-0"
+                    />
+                  </div>
+                  <div class="grow space-y-2 font-medium">
+                    <h3 class="text-base/5 font-medium">
+                      Credit &amp; Debit Cards
+                    </h3>
+                    <p class="text-base/[22px] font-normal text-gray">
+                      Secure money transfers with Mastercard, Visa, Discover,
+                      and Stripe.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="course-panel">
+                <div class="mb-5 flex flex-wrap items-center gap-2.5 pl-6">
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/visa.svg"
+                    />
+                  </div>
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/mastercard.svg"
+                    />
+                  </div>
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/paypal.svg"
+                    />
+                  </div>
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/amazon-pay.svg"
+                    />
+                  </div>
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/klarna.svg"
+                    />
+                  </div>
+                  <div
+                    class="grid h-[30px] shrink-0 place-content-center rounded-md border border-black/10 bg-white px-1.5"
+                  >
+                    <img
+                      alt="visa"
+                      width="32"
+                      height="10"
+                      loading="lazy"
+                      src="assets/images/skrill.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="course-accordion flex cursor-pointer gap-2.5 py-5 text-left text-base/5 font-medium transition-all"
+              >
+                <div
+                  class="radio-check group relative mt-0.5 grid size-4 shrink-0 place-content-center rounded-full border-[1.5px] border-gray has-[:checked]:border-black"
+                >
+                  <span
+                    class="size-3 rounded-full bg-transparent group-has-[:checked]:bg-black"
+                  ></span>
+                  <input
+                    type="radio"
+                    name="payment"
+                    class="absolute inset-0 size-full opacity-0"
+                  />
+                </div>
+                <h3 class="text-base/5 font-medium">Net Banking</h3>
+              </div>
+              <div class="course-panel">
+                <div
+                  class="mb-5 pl-6"
+                  x-data="select"
+                  @click.outside="open = false"
+                >
+                  <button
+                    type="button"
+                    @click="toggle"
+                    class="flex items-center justify-end gap-1.5 rounded-xl border border-black/10 bg-white px-3 py-2.5 text-base/tight text-black placeholder:text-black focus:outline-none [&>span]:line-clamp-1"
+                  >
+                    <span
+                      x-text="(select == '') ? 'Choose an option' : select"
+                    ></span
+                    ><svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      class="size-5 shrink-0"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div
+                    class="border-white/6 absolute left-6 top-24 z-20 mt-2 max-h-40 w-max space-y-1 rounded-lg border bg-white p-1 text-gray shadow-md"
+                    x-show="open"
+                  >
+                    <button
+                      type="button"
+                      class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+                      @click="setSelect('ICICI bank')"
+                      :class="(select === 'ICICI bank') && 'bg-gray-100 text-black'"
+                    >
+                      ICICI bank
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+                        x-show="select === 'ICICI bank'"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+                      @click="setSelect('Axis bank')"
+                      :class="(select === 'Axis bank') && 'bg-gray-100 text-black'"
+                    >
+                      Axis bank
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+                        x-show="select === 'Axis bank'"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+                      @click="setSelect('Bank of baroda')"
+                      :class="(select === 'Bank of baroda') && 'bg-gray-100 text-black'"
+                    >
+                      Bank of baroda
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+                        x-show="select === 'Bank of baroda'"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="relative flex w-full whitespace-nowrap rounded-lg py-1.5 pl-7 pr-2 text-base/tight transition hover:bg-gray-100 hover:text-black"
+                      @click="setSelect('State bank of india')"
+                      :class="(select === 'State bank of india') && 'bg-gray-100 text-black'"
+                    >
+                      State bank of india
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        class="absolute left-2 top-1/2 size-3 shrink-0 -translate-y-1/2 text-black"
+                        x-show="select === 'State bank of india'"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="course-accordion flex cursor-pointer gap-2.5 py-5 text-left text-base/5 font-medium transition-all"
+              >
+                <div
+                  class="radio-check group relative mt-0.5 grid size-4 shrink-0 place-content-center rounded-full border-[1.5px] border-gray has-[:checked]:border-black"
+                >
+                  <span
+                    class="size-3 rounded-full bg-transparent group-has-[:checked]:bg-black"
+                  ></span>
+                  <input
+                    type="radio"
+                    name="payment"
+                    class="absolute inset-0 size-full opacity-0"
+                  />
+                </div>
+                <h3 class="text-base/5 font-medium">UPI (Pay via any App)</h3>
+              </div>
+              <div class="course-panel">
+                <div class="mb-5 pl-6">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-full">
+                      <input
+                        class="classform-input w-full rounded-xl border border-black/10 bg-transparent px-3.5 py-3 text-sm/tight font-medium outline-none placeholder:text-gray focus:border-black"
+                        placeholder="Enter UPI ID"
+                      />
+                    </div>
+                    <button class="btn px-4" type="button">Verify</button>
+                  </div>
+                  <p class="mt-5 text-base/[22px] font-normal text-gray">
+                    The UPI ID is in the format of name/phone number@bankname
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="course-accordion flex cursor-pointer gap-2.5 pt-5 text-left text-base/5 font-medium transition-all"
+              >
+                <div
+                  class="radio-check group relative mt-0.5 grid size-4 shrink-0 place-content-center rounded-full border-[1.5px] border-gray has-[:checked]:border-black"
+                >
+                  <span
+                    class="size-3 rounded-full bg-transparent group-has-[:checked]:bg-black"
+                  ></span>
+                  <input
+                    type="radio"
+                    name="payment"
+                    class="absolute inset-0 size-full opacity-0"
+                  />
+                </div>
+                <h3 class="text-base/5 font-medium">EMI</h3>
+              </div>
+              <div class="course-panel">
+                <div class="mt-2.5 pl-6">
+                  <p class="text-base/[22px] font-normal text-gray">
+                    EMI Unavailable&nbsp;<a
+                      class="font-medium text-black underline-offset-2 transition hover:underline"
+                      href="#"
+                      >Why?</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-lock size-[18px] shrink-0"
+            >
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <p>Secure and encrypted</p>
+          </div>
+          <img
+            alt="Stripe"
+            loading="lazy"
+            width="940"
+            height="700"
+            class="h-full w-11"
+            src="assets/images/Stripe-logo.svg"
+            style="color: transparent"
+          />
+        </div>
+        <p class="leading-6 text-gray">
+          By clicking 'Order and Pay&amp;apso;, you agree to the (general)
+          <a
+            class="text-black underline underline-offset-4 transition hover:no-underline"
+            href="/terms-and-conditions.html"
+            >Terms and Conditions</a
+          >
+          of vanmoof.com applicable to your order and you agree to our
+          <a
+            class="text-black underline underline-offset-4 transition hover:no-underline"
+            href="/privacy-policy.html"
+            >Privacy Policy</a
+          >
+        </p>
+      </div>
+      <button
+        type="submit"
+        class="btn bg-green-600 hover:bg-green-700 w-full rounded-lg font-semibold text-white shadow-md"
+      >
+        Order and Pay
+      </button>
+      
+      <p class="leading-6 text-gray">
+        Your payment info will be saved to a Shop account. By continuing, you
+        agree to Shop's
+        <a
+          class="text-black underline underline-offset-4 transition hover:no-underline"
+          href="/treams-and-condition"
+          >Terms and Service</a
+        >
+        and acknowledge the
+        <a
+          class="text-black underline underline-offset-4 transition hover:no-underline"
+          href="/privacy-policy.html"
+          >Privacy Policy</a
+        >.
+      </p>
+    </div>
+  </div>
+  <div class="order-1 lg:order-2">
+    <div
+      class="bg-gray-100 lg:sticky lg:top-[90px] lg:min-h-[calc(100vh-90px)]"
+    >
+      <div
+        class="container mr-auto space-y-10 px-4 py-12 lg:!ml-0 lg:max-w-[612px] lg:px-10 xl:px-14 xl:py-20"
+      >
+        <div class="space-y-5">
+          <div class="flex items-start gap-5 lg:items-center">
+            <a
+              class="group relative flex size-16 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white sm:size-20 lg:size-[100px]"
+              href="/cycle-details.html"
+            >
+              <span
+                class="absolute -right-2 -top-2 grid min-w-[24px] place-content-center rounded-full bg-gray px-1.5 py-0.5 font-bold text-white sm:h-[24px]"
+                >1
+              </span>
+              <img
+                alt="Visa"
+                loading="lazy"
+                width="940"
+                height="700"
+                decoding="async"
+                data-nimg="1"
+                class="h-full w-full object-contain transition group-hover:opacity-80"
+                src="/velocity/assets/images/cycle-hero-img1.png"
+            /></a>
+            <div
+              class="flex grow flex-col justify-between gap-1.5 sm:flex-row sm:items-center sm:gap-5"
+            >
+              <a
+                class="line-clamp-2 font-medium transition hover:opacity-80 lg:line-clamp-3 lg:text-lg/[22px]"
+                href="/cycle-details.html"
+                >Velocity Roadster
+              </a>
+              <h3 class="line-clamp-2 shrink-0 font-medium lg:text-lg/[22px]">
+                $9,999.00
+              </h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-full">
+              <input
+                class="classform-input w-full rounded-xl border border-black/10 bg-transparent bg-white px-3.5 py-3 text-sm/tight font-medium outline-none placeholder:text-gray focus:border-black"
+                placeholder="Discount code"
+              />
+            </div>
+            <button class="btn" type="button">Apply</button>
+          </div>
+        </div>
+        <div class="space-y-5 text-gray">
+          <div class="flex justify-between gap-3">
+            <p>Subtotal (1 item)</p>
+            <span class="font-medium">$9,999.00</span>
+          </div>
+          <div class="flex justify-between gap-3">
+            <p>Shipping</p>
+            <span class="font-medium">Free</span>
+          </div>
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-medium text-black">Total</h3>
+              <p>Including $526.57 in India</p>
+            </div>
+            <span class="text-lg font-medium text-black">$9,999.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
