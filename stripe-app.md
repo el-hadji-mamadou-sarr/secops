@@ -193,8 +193,7 @@ CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
 ### 1. Transactions Stripe Dashboard
 *Capture d'écran du tableau de bord Stripe montrant les transactions de test de l'application*
 
-<!-- Remplacez cette URL par votre capture d'écran -->
-![Transactions Stripe](URL_DE_VOTRE_IMAGE_STRIPE)
+<img width="1558" height="310" alt="Screenshot from 2025-07-11 13-39-49" src="https://github.com/user-attachments/assets/2e07b588-4b8d-42ab-a621-059b3203923f" />
 
 Cette capture montre les transactions de test effectuées via l'application Django. Le dashboard Stripe permet de visualiser :
 - Les paiements réussis avec les montants
@@ -205,20 +204,22 @@ Cette capture montre les transactions de test effectuées via l'application Djan
 ### 2. Optimisation de la Taille d'Image Docker
 *Comparaison des tailles d'images avant et après optimisation*
 
-<!-- Remplacez cette URL par votre capture d'écran -->
-![Optimisation Docker](URL_DE_VOTRE_IMAGE_DOCKER_SIZES)
+<img width="830" height="59" alt="Screenshot from 2025-07-11 13-15-50" src="https://github.com/user-attachments/assets/2e253449-7401-44ad-8b6d-f7155742606c" />
+
+**Aprés**
+
+<img width="830" height="44" alt="Screenshot from 2025-07-11 13-21-59" src="https://github.com/user-attachments/assets/dc4d060d-26bb-4737-a169-565acfe27c71" />
 
 Cette comparaison illustre l'impact des optimisations DevSecOps :
-- **Avant optimisation** : Image Python standard (~1.2GB)
-- **Après optimisation** : Image Alpine Linux (~200MB)
+- **Avant optimisation** : Image Python standard (~1.42GB)
+- **Après optimisation** : Image Alpine Linux (~300MB)
 - **Réduction de 80%** grâce à l'utilisation d'Alpine et à la réduction des couches
 - **Techniques appliquées** : Multi-stage builds, cache Docker, nettoyage des packages
 
 ### 3. Images Docker Hub
 *Capture d'écran du repository Docker Hub avec les images déployées*
 
-<!-- Remplacez cette URL par votre capture d'écran -->
-![Docker Hub Repository](URL_DE_VOTRE_IMAGE_DOCKERHUB)
+<img width="1551" height="264" alt="Screenshot from 2025-07-11 17-34-35" src="https://github.com/user-attachments/assets/425e36f0-5c95-4ed2-8105-6429431d38ce" />
 
 Le repository Docker Hub montre :
 - L'image `gloatingorc/stripe-app:latest` optimisée
@@ -229,8 +230,7 @@ Le repository Docker Hub montre :
 ### 4. Page de Paiement de l'Application
 *Interface utilisateur de la page de paiement avec intégration Stripe*
 
-<!-- Remplacez cette URL par votre capture d'écran -->
-![Page de Paiement](URL_DE_VOTRE_IMAGE_PAYMENT_PAGE)
+<img width="593" height="822" alt="Screenshot from 2025-07-11 13-39-23" src="https://github.com/user-attachments/assets/cc07c6a6-a078-4180-a515-b7a54695325b" />
 
 L'interface de paiement démontre :
 - L'intégration native de Stripe Elements dans l'application Django
