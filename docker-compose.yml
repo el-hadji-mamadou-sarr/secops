@@ -22,7 +22,6 @@ services:
       - DEBUG=True
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
-      - SECRET_KEY=${SECRET_KEY}
     networks:
       - web_network
       - db_network

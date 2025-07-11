@@ -15,18 +15,50 @@ Dans le cadre du projet E5 DevSecOps, notre équipe d'ingénieurs DevSecOps a po
 
 Le projet utilise un seul fichier `docker-compose.yml` centralisé pour orchestrer tous les services :
 
+#### 2. Service Django
 ```yaml
-Services:
-├── nginx (Reverse Proxy)    # Port 80, 443, 5005
-├── stripe-app (Django)      # Port interne (sans exposition directe)
+services:
+  stripe-app:
+    container_name: stripe_app
+    restart: always
+    build: ./stripe-app
+    environment:
+      - DEBUG=True
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+    networks:
+      - web_network
+      - db_network
+    volumes:
+      - stripe_media:/media
+      - stripe_static:/staticfiles
+```
 
-Réseaux:
-├── web_network (Frontend)
-└── db_network (Backend)
-
-Volumes:
-├── stripe_static (Fichiers statiques)
-└── stripe_media (Médias)
+#### 3. Service Nginx (Reverse Proxy)
+```yaml
+  nginx:
+    container_name: nginx_proxy
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "5085:5005"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - stripe_static:/staticfiles
+      - stripe_media:/media
+    depends_on:
+      - stripe-app
+    networks:
+      - web_network
+```
+#### 4. Configuration des Réseaux
+```yaml
+  db_network:
+    driver: bridge
+  web_network:
+    driver: bridge
 ```
 
 ### Stack Technologique
@@ -37,57 +69,9 @@ Volumes:
 
 ### Variables d'Environnement
 ```env
-DEBUG=True
-SECRET_KEY=your-secret-key-here
-STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
-STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-app-password
+STRIPE_SECRET_KEY=your_secret_key_here
+STRIPE_PUBLISHABLE_KEY=your_publishable_key_here
 ```
-
-### Déploiement avec Docker
-
-#### 1. Configuration des réseaux
-```yaml
-networks:
-  db_network:
-    driver: bridge
-  web_network:
-    driver: bridge
-```
-
-#### 2. Service Django
-```yaml
-services:
-  rocket-django:
-    container_name: rocket_django
-    restart: always
-    build: .
-    networks:
-      - db_network
-      - web_network
-```
-
-#### 3. Service Nginx (Reverse Proxy)
-```yaml
-  nginx:
-    container_name: nginx
-    restart: always
-    image: "nginx:latest"
-    ports:
-      - "5005:5005"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-    networks:
-      - web_network
-    depends_on: 
-      - rocket-django
-```
-
-### Commandes de Déploiement
 
 #### Déploiement avec l'Architecture Centralisée
 
@@ -101,32 +85,11 @@ docker-compose up --build -d
 # 4. Vérifier que tous les services sont actifs
 docker-compose ps
 
-# 5. Tester l'accès aux services
-curl http://localhost        # Nginx reverse proxy
-curl http://localhost:5005   # Accès direct (pentest)
+# 5. Tester l'accès
+curl http://localhost:5085  
 ```
 
 ### Configuration du Reverse Proxy
-
-Le fichier `nginx/nginx.conf` est configuré aisni:
-
-```nginx
-events {
-    worker_connections 1024;
-}
-
-http {
-    include /etc/nginx/mime.types;
-    default_type application/octet-stream;
-    
-    sendfile on;
-    keepalive_timeout 65;
-    
-    include /etc/nginx/conf.d/*.conf;
-}
-```
-
-### Configuration Spécifique Stripe
 
 Le fichier `nginx/conf.d/stripe-app.conf` gère le routage :
 
@@ -136,7 +99,7 @@ upstream stripe_backend {
 }
 
 server {
-    listen 80;
+    listen 5005;
     server_name localhost;
 
     location / {
@@ -163,44 +126,15 @@ server {
 ### Aspects DevSecOps
 - **Infrastructure as Code**: Un seul fichier docker-compose.yml pour tout déployer
 - **Reverse Proxy**: Nginx centralise l'accès aux services
-- **Accès direct**: Port 5005 exposé pour les tests de pénétration (whitebox)
 - **Isolation réseau**: Séparation web_network et db_network
 
-### Tests d'Intégration
-```bash
-# Test via reverse proxy
-curl -X GET http://localhost/
-
-# Test accès direct (pentest)
-curl -X GET http://localhost:5005/
-
-# Test des fichiers statiques
-curl -X GET http://localhost/static/
-
-# Test du paiement Stripe
-curl -X POST http://localhost/checkout/
-```
-
 ## Accès à l'Application
-
-### URLs Principales
-- **Frontend**: http://localhost
-- **Admin**: http://localhost/admin/
-- **API**: http://localhost/api/
-- **Health Check**: http://localhost/health
 
 ### Comptes de Test
 - **Admin**: admin@example.com
 - **Stripe Test**: Utiliser les cartes de test Stripe
   - Visa: 4242 4242 4242 4242
   - Expiration: 12/25, CVC: 123
-
-### Logs
-```bash
-# Logs des conteneurs
-docker-compose logs -f
-
-```
 
 ---
 *Projet réalisé dans le cadre de la formation E5 DevSecOps Docker - ESTIAM Paris*
