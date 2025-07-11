@@ -131,6 +131,63 @@ server {
 - **Reverse Proxy**: Nginx centralise l'accès aux services
 - **Isolation réseau**: Séparation web_network et db_network
 
+## Dockerfile - Configuration de l'Image
+
+Le `Dockerfile` dans le répertoire `stripe-app/` définit l'image Docker optimisée pour l'application Django :
+
+```dockerfile
+FROM python:3.11-alpine3.18
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+COPY requirements.txt .
+# install python dependencies
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Install node 18 and npm
+RUN apk add --no-cache nodejs npm
+
+# Install modules and webpack
+RUN npm i && npm run build
+
+# Manage Assets & DB 
+RUN python manage.py collectstatic --no-input  && python manage.py makemigrations && python manage.py migrate
+
+# gunicorn
+CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
+```
+
+### Explication du Dockerfile
+
+#### Image de Base
+- **`python:3.11-alpine3.18`** : Image légère Alpine Linux avec Python 3.11
+- Réduction de 80% de la taille par rapport à une image Debian standard
+
+#### Variables d'Environnement
+- **`PYTHONDONTWRITEBYTECODE=1`** : Empêche Python de créer des fichiers .pyc
+- **`PYTHONUNBUFFERED=1`** : Assure l'affichage immédiat des logs
+
+#### Installation des Dépendances
+1. **Dependencies Python** : Installation via `pip` avec cache désactivé
+2. **Node.js & npm** : Ajout pour la gestion des assets frontend
+3. **Build Frontend** : Compilation des assets avec webpack
+
+#### Configuration Django
+- **`collectstatic`** : Collecte des fichiers statiques
+- **`makemigrations & migrate`** : Préparation et application des migrations de base de données
+
+#### Serveur de Production
+- **Gunicorn** : Serveur WSGI pour la production avec configuration personnalisée
+
+### Optimisations DevSecOps
+- **Multi-stage non utilisé** : Image simple pour une application légère
+- **Cache Docker** : Ordonnancement des couches pour optimiser le cache
+- **Sécurité** : Utilisation d'Alpine pour réduire la surface d'attaque
+
 ## Accès à l'Application
 
 ### Comptes de Test
@@ -138,6 +195,127 @@ server {
 - **Stripe Test**: Utiliser les cartes de test Stripe
   - Visa: 4242 4242 4242 4242
   - Expiration: 12/25, CVC: 123
+
+## Répartition des Tâches de l'Équipe
+
+### Équipe DevSecOps
+**Chef de Projet & DevSecOps Engineer**: El Hadji Mamadou SARR
+
+#### Répartition des Responsabilités
+
+**Phase 1 - Conception & Architecture**
+- Analyse des besoins et définition de l'architecture
+- Choix des technologies et frameworks
+- Conception du schéma d'architecture technique
+- Définition des bonnes pratiques DevSecOps
+
+**Phase 2 - Développement & Conteneurisation**
+- Développement de l'application Django e-commerce
+- Intégration de Stripe pour les paiements
+- Configuration des Dockerfiles optimisés
+- Mise en place du reverse proxy Nginx
+
+**Phase 3 - Infrastructure & Déploiement**
+- Configuration Docker Compose centralisé
+- Mise en place des réseaux et volumes
+- Tests d'intégration et de déploiement
+- Optimisation des images Docker
+
+**Phase 4 - Sécurité & Monitoring**
+- Audit de sécurité des conteneurs
+- Configuration des variables d'environnement
+- Tests de sécurité et validation
+- Documentation complète
+
+## Schéma de l'Architecture du Projet
+![Schéma de l'Architecture du Projet](https://raw.githubusercontent.com/el-hadji-mamadou-sarr/secops/main/architecture-diagram.png)
+
+## Choix des Technologies - Contexte DevOps
+
+### Conteneurisation - Docker
+- **Infrastructure as Code** : Définition reproductible des environnements
+- **Isolation** : Environnements isolés et consistants dev/test/prod
+- **Portabilité** : Deploy anywhere principle - cloud agnostic
+- **Versioning** : Gestion des versions d'images et rollback facilité
+- **CI/CD Integration** : Intégration native avec les pipelines
+
+### Orchestration - Docker Compose
+- **Multi-services** : Gestion coordonnée de plusieurs conteneurs
+- **Networking** : Gestion automatique des réseaux entre services
+- **Volumes** : Persistance des données et partage entre conteneurs
+- **Environment Management** : Gestion centralisée des variables d'environnement
+- **Scaling** : Possibilité de scaling horizontal simple
+
+### Reverse Proxy - Nginx
+- **Load Balancing** : Répartition de charge entre instances
+- **SSL Termination** : Gestion centralisée des certificats
+- **Caching** : Mise en cache des contenus statiques
+- **Security** : Point d'entrée unique avec filtrage
+- **Monitoring** : Logs centralisés et métriques
+
+### Base d'Images - Alpine Linux
+- **Security** : Surface d'attaque réduite
+- **Performance** : Temps de build et déploiement rapides
+- **Resource Efficiency** : Consommation mémoire/CPU optimisée
+- **Container Registry** : Réduction des coûts de stockage et transfert
+
+### Stratégie DevOps
+**Infrastructure as Code :**
+- Un seul fichier `docker-compose.yml` pour tout l'environnement
+- Configuration par variables d'environnement
+- Reproductibilité garantie sur tous les environnements
+
+**Continuous Integration :**
+- Build automatique des images Docker
+- Tests d'intégration sur containers
+- Push automatique vers Docker Hub
+
+**Continuous Deployment :**
+- Déploiement par pull des images depuis registry
+- Blue-green deployment possible
+- Rollback rapide par tag d'image
+
+## Hébergement et Cloud
+
+### Repository Git
+**GitHub Repository**: https://github.com/el-hadji-mamadou-sarr/secops
+
+**Structure DevOps :**
+```
+secops/
+├── docker-compose.yml          # Orchestration principale
+├── docker-compose-hub.yml      # Version avec images Docker Hub
+├── stripe-app/
+│   ├── Dockerfile             # Image optimisée Alpine
+│   ├── requirements.txt       # Dependencies Python
+│   └── src/                   # Code source Django
+├── nginx/
+│   ├── nginx.conf            # Configuration principale
+│   └── conf.d/               # Configurations des services
+└── README.md                 # Documentation de déploiement
+```
+
+### Docker Hub Registry
+**Images hébergées :**
+- `gloatingorc/stripe-app:latest` 
+
+**Pipeline DevOps :**
+```bash
+# Build et push vers Docker Hub
+docker build -t gloatingorc/stripe-app:latest ./stripe-app
+docker push gloatingorc/stripe-app:latest
+
+# Déploiement depuis Docker Hub
+docker-compose -f docker-compose-hub.yml up -d
+```
+
+### Avantages DevOps
+
+1. **Déploiement One-Click** : Un seul fichier docker-compose.yml
+2. **Images Optimisées** : 80% de réduction de taille
+3. **Sécurité by Design** : Isolation réseau et principe du moindre privilège
+4. **Scalabilité** : Architecture ready pour orchestrateurs (Kubernetes)
+5. **Maintenance** : Mise à jour centralisée via registries
 
 ---
 *Projet réalisé dans le cadre de la formation E5 DevSecOps Docker - ESTIAM Paris*
