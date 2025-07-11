@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    env_file: .env           # You should have .env in the project root or backend/
+    ports:
+      - "4242:4242"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
