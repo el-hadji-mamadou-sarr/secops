@@ -79,6 +79,9 @@ STRIPE_PUBLISHABLE_KEY=your_publishable_key_here
 # 1. Préparer l'environnement
 git clone https://github.com/el-hadji-mamadou-sarr/secops.git
 
+# 2. Configurer les variables d'environnement
+cp .env.example .env
+
 # 3. Démarrer tous les services avec un seul fichier docker-compose.yml
 docker-compose up --build -d
 
